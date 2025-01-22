@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Security on &#43;</title>
+    <link>https://kezer.co/tags/security/</link>
+    <description>Recent content in Security on &#43;</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <copyright>© 2024 — kezer — All rights reserved.</copyright>
+    <lastBuildDate>Thu, 09 May 2024 21:39:12 +0300</lastBuildDate>
+    <atom:link href="https://kezer.co/tags/security/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Bullrun Crypto Security Guide</title>
+      <link>https://kezer.co/posts/bullrun-crypto-security-guide/</link>
+      <pubDate>Thu, 09 May 2024 21:39:12 +0300</pubDate>
+      <guid>https://kezer.co/posts/bullrun-crypto-security-guide/</guid>
+      <description>&lt;p&gt;All types of wallet/token/NFT &lt;em&gt;hacks&lt;/em&gt; fall into two categories:&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Abuse of previously owned token approval.&lt;/li&gt;&#xA;&lt;li&gt;Private key/seed compromise.&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h4 id=&#34;token-approvals&#34;&gt;Token Approvals:&lt;/h4&gt;&#xA;&lt;p&gt;Token approvals are essentially a permission for smart contract to access and move specific type or amount of a token from your wallet. Like giving permission to OpenSea or Uniswap to move your NFTs so you can see them.&lt;/p&gt;&#xA;&lt;p&gt;In detail, on Ethereum network, everything except ETH is ERC-20 token. NFTs are are mostly ERC-721 and 1155 tokens respectively. Their approval mechanics work similar to ERC-20s but for NFT marketplaces.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>GrapheneOS App Suggestions</title>
+      <link>https://kezer.co/posts/grapheneos-app-suggestions/</link>
+      <pubDate>Tue, 09 Jan 2024 03:39:12 +0300</pubDate>
+      <guid>https://kezer.co/posts/grapheneos-app-suggestions/</guid>
+      <description>&lt;p&gt;Last Update: 21.01.25&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;GrapheneOS app suggestions&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;GrapheneOS is an opensource operating system for Pixel phones aimed to be the most secure and private OS for mobile phones.&lt;/p&gt;&#xA;&lt;p&gt;Here you can find some Tips&amp;amp;Tricks and App suggestions.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Tips &amp;amp; Tricks&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Use Private Space for banking apps, just to add an extra layer of security. I use Google Play services here as well. Because I have to install these apps from Google anyway.&lt;/li&gt;&#xA;&lt;li&gt;Try to use minimum number of apps to reduce the attack surface.&lt;/li&gt;&#xA;&lt;li&gt;Try to always look for &lt;strong&gt;FOSS&lt;/strong&gt; alternatives of the apps you want to use.&lt;/li&gt;&#xA;&lt;li&gt;If you have to use VPN, host yours to VPS or Mullvad.&lt;/li&gt;&#xA;&lt;li&gt;Use quality DNS server like nextdns, or mullvad.&lt;/li&gt;&#xA;&lt;li&gt;Turn off &lt;strong&gt;Wi-Fi&lt;/strong&gt; automatically is a great option.&lt;/li&gt;&#xA;&lt;li&gt;Disable bluetooth whenever you are not using it.&lt;/li&gt;&#xA;&lt;li&gt;Use obtainium to install&amp;amp;maintain apps.&lt;/li&gt;&#xA;&lt;li&gt;Vanadium is the only browser you need.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;&lt;strong&gt;Apps&lt;/strong&gt;:&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

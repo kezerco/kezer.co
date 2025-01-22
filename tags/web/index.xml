@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Web on &#43;</title>
+    <link>https://kezer.co/tags/web/</link>
+    <description>Recent content in Web on &#43;</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <copyright>© 2024 — kezer — All rights reserved.</copyright>
+    <lastBuildDate>Fri, 26 Apr 2024 03:39:12 +0300</lastBuildDate>
+    <atom:link href="https://kezer.co/tags/web/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Host your VPN</title>
+      <link>https://kezer.co/posts/host-your-vpn/</link>
+      <pubDate>Fri, 26 Apr 2024 03:39:12 +0300</pubDate>
+      <guid>https://kezer.co/posts/host-your-vpn/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Wireguard&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;Looking for lightweight privacy on the go? Then consider hosting a WireGuard VPN service.&lt;/p&gt;&#xA;&lt;p&gt;There are basically two ways to install Wireguard VPN on your server.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;First method&lt;/strong&gt;: use &lt;a href=&#34;https://github.com/angristan/wireguard-install&#34;&gt;this script&lt;/a&gt;. It will do everything easiy and fast, and will give you client configs.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Second method&lt;/strong&gt;: We will do everything manually&lt;/p&gt;&#xA;&lt;p&gt;As an example, we’ll be using a virtual 172.16.0.0/24 network, but any private ip range will suffice.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;On the Server&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Rsync: upload and sync files</title>
+      <link>https://kezer.co/posts/rsync-upload-and-sync-files/</link>
+      <pubDate>Thu, 25 Apr 2024 03:39:12 +0300</pubDate>
+      <guid>https://kezer.co/posts/rsync-upload-and-sync-files/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;rsync&lt;/strong&gt; is a simple tool to copy files or folders to your server from local, or sync files from your server to your local. You may use filezilla or similar ftp manager, but with a simple code you can do it all easily. And assuming you are using SSH key to login to your server, with a simple bash script, you can do it easier than ever.&lt;/p&gt;&#xA;&lt;p&gt;Install rsync&lt;/p&gt;&#xA;&lt;p&gt;on server: &lt;code&gt;apt install rsync&lt;/code&gt; (as it is debian)&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Use SSH keys to login to your Server</title>
+      <link>https://kezer.co/posts/use-ssh-keys-to-login-to-your-server/</link>
+      <pubDate>Fri, 12 Apr 2024 03:39:12 +0300</pubDate>
+      <guid>https://kezer.co/posts/use-ssh-keys-to-login-to-your-server/</guid>
+      <description>&lt;p&gt;Two advantages:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Passwordless login&lt;/strong&gt;: With SSH keys, your computer will have the key and you will never need to write root password.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Hacking&lt;/strong&gt;: Noone can guess or brute force your password into logging into your server, as we will not allow logging in without SSH.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;So in short, &lt;strong&gt;SSH key&lt;/strong&gt; login is &lt;em&gt;faster, safer, easier&lt;/em&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Lets &lt;strong&gt;Generate a SSH key pair&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;On your terminal run:&lt;/p&gt;&#xA;&lt;p&gt;&lt;code&gt;ssh-keygen&lt;/code&gt;&lt;/p&gt;&#xA;&lt;p&gt;Do not give any password, and defaults are ok.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Getting your website up and running</title>
+      <link>https://kezer.co/posts/getting-your-website-up-and-running/</link>
+      <pubDate>Mon, 25 Mar 2024 03:39:12 +0300</pubDate>
+      <guid>https://kezer.co/posts/getting-your-website-up-and-running/</guid>
+      <description>&lt;p&gt;So you have seen my posts about creating your VPN, SSH key, rsync and all, but you dont even have a website?&#xA;Makes sense, because I should have posted this post earlier.&lt;/p&gt;&#xA;&lt;p&gt;So lets go under and hour, we will have our basic webpage up and running on our VPS server.&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;strong&gt;Get your domain name&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;I suggest njal.la as they do not share your whois. Simple interface, everything is nice. Choose whatever you want and buy it.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Getting your website up and running | &#43;</title>
+<meta name="title" content="Getting your website up and running" />
+<meta name="description" content="So you have seen my posts about creating your VPN, SSH key, rsync and all, but you dont even have a website?
+Makes sense, because I should have posted this post earlier.
+So lets go under and hour, we will have our basic webpage up and running on our VPS server.
+
+Get your domain name
+
+I suggest njal.la as they do not share your whois. Simple interface, everything is nice. Choose whatever you want and buy it." />
+<meta name="keywords" content="web,technology," />
+
+
+<meta property="og:url" content="https://kezer.co/posts/getting-your-website-up-and-running/">
+  <meta property="og:site_name" content="&#43;">
+  <meta property="og:title" content="Getting your website up and running">
+  <meta property="og:description" content="So you have seen my posts about creating your VPN, SSH key, rsync and all, but you dont even have a website? Makes sense, because I should have posted this post earlier.
+So lets go under and hour, we will have our basic webpage up and running on our VPS server.
+Get your domain name I suggest njal.la as they do not share your whois. Simple interface, everything is nice. Choose whatever you want and buy it.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-03-25T03:39:12+03:00">
+    <meta property="article:modified_time" content="2024-03-25T03:39:12+03:00">
+    <meta property="article:tag" content="Web">
+    <meta property="article:tag" content="Technology">
+
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Getting your website up and running">
+  <meta name="twitter:description" content="So you have seen my posts about creating your VPN, SSH key, rsync and all, but you dont even have a website? Makes sense, because I should have posted this post earlier.
+So lets go under and hour, we will have our basic webpage up and running on our VPS server.
+Get your domain name I suggest njal.la as they do not share your whois. Simple interface, everything is nice. Choose whatever you want and buy it.">
+
+
+
+
+  <meta itemprop="name" content="Getting your website up and running">
+  <meta itemprop="description" content="So you have seen my posts about creating your VPN, SSH key, rsync and all, but you dont even have a website? Makes sense, because I should have posted this post earlier.
+So lets go under and hour, we will have our basic webpage up and running on our VPS server.
+Get your domain name I suggest njal.la as they do not share your whois. Simple interface, everything is nice. Choose whatever you want and buy it.">
+  <meta itemprop="datePublished" content="2024-03-25T03:39:12+03:00">
+  <meta itemprop="dateModified" content="2024-03-25T03:39:12+03:00">
+  <meta itemprop="wordCount" content="551">
+  <meta itemprop="keywords" content="Web,Technology">
+<meta name="referrer" content="no-referrer-when-downgrade" />
+
+  <style>
+  :root {
+      --width: 800px;
+      --font-main: Verdana, sans-serif;
+      --font-secondary: Verdana, sans-serif;
+      --font-scale: 1em;
+      --background-color: #fff;
+      --heading-color: #222;
+      --text-color: #444;
+      --link-color: #3273dc;
+      --visited-color:  #8b6fcb;
+      --code-background-color: #f2f2f2;
+      --code-color: #222;
+      --blockquote-color: #222;
+  }
+
+  @media (prefers-color-scheme: dark) {
+      :root {
+          --background-color: #333;
+          --heading-color: #eee;
+          --text-color: #ddd;
+          --link-color: #8cc2dd;
+          --visited-color:  #8b6fcb;
+          --code-background-color: #777;
+          --code-color: #ddd;
+          --blockquote-color: #ccc;
+      }
+  }
+
+  body {
+      font-family: var(--font-secondary);
+      font-size: var(--font-scale);
+      margin: auto;
+      padding: 20px;
+      max-width: var(--width);
+      text-align: left;
+      background-color: var(--background-color);
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      line-height: 1.5;
+      color: var(--text-color);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+      font-family: var(--font-main);
+      color: var(--heading-color);
+  }
+
+  a {
+      color: var(--link-color);
+      cursor: pointer;
+      text-decoration: none;
+  }
+
+  a:hover {
+      text-decoration: underline; 
+  }
+
+  nav a {
+      margin-right: 8px;
+  }
+
+  strong, b {
+      color: var(--heading-color);
+  }
+
+  button {
+      margin: 0;
+      cursor: pointer;
+  }
+
+  main {
+      line-height: 1.6;
+  }
+
+  table {
+      width: 100%;
+  }
+
+  hr {
+      border: 0;
+      border-top: 1px dashed;
+  }
+
+  img {
+      max-width: 100%;
+  }
+
+  code {
+      font-family: monospace;
+      padding: 2px;
+      background-color: var(--code-background-color);
+      color: var(--code-color);
+      border-radius: 3px;
+  }
+
+  blockquote {
+      border-left: 1px solid #999;
+      color: var(--code-color);
+      padding-left: 20px;
+      font-style: italic;
+  }
+
+  footer {
+      padding: 25px 0;
+      text-align: center;
+  }
+
+  .title:hover {
+      text-decoration: none;
+  }
+
+  .title h1 {
+      font-size: 1.5em;
+  }
+
+  .inline {
+      width: auto !important;
+  }
+
+  .highlight, .code {
+      padding: 1px 15px;
+      background-color: var(--code-background-color);
+      color: var(--code-color);
+      border-radius: 3px;
+      margin-block-start: 1em;
+      margin-block-end: 1em;
+      overflow-x: auto;
+  }
+
+   
+  ul.blog-posts {
+      list-style-type: none;
+      padding: unset;
+  }
+
+  ul.blog-posts li {
+      display: flex;
+  }
+
+  ul.blog-posts li span {
+      flex: 0 0 130px;
+  }
+
+  ul.blog-posts li a:visited {
+      color: var(--visited-color);
+  }
+</style>
+
+</head>
+
+<body>
+  <header><a href="/" class="title">
+  <h2>&#43;</h2>
+</a>
+<nav><a href="/">home</a>
+
+<a href="/posts/">posts</a>
+
+<a href="/tags/">tags</a>
+
+
+</nav>
+</header>
+  <main>
+
+<content>
+  <p>So you have seen my posts about creating your VPN, SSH key, rsync and all, but you dont even have a website?
+Makes sense, because I should have posted this post earlier.</p>
+<p>So lets go under and hour, we will have our basic webpage up and running on our VPS server.</p>
+<ol>
+<li><strong>Get your domain name</strong></li>
+</ol>
+<p>I suggest njal.la as they do not share your whois. Simple interface, everything is nice. Choose whatever you want and buy it.</p>
+<ol start="2">
+<li><strong>Get a server</strong></li>
+</ol>
+<p>There are tons of server options. Server means, there is a computer which has your files constantly broadcasting to internet. You can use this server as a website host, email server, file-sharing service, mirc server.. and much more</p>
+<p>So lets go get a VPS (Virtual Personal Server)</p>
+<p>I am using 1984.hosting again extremely simple interface, located in iceland, fast support, relatively cheap. A basic VPS will cost you around 5euro per month.</p>
+<p>You can use others like digitalocean, Vultr, Privex and much more.</p>
+<p>So lets create a VPS, select debian a server operating system with no addons. About server size, first choose the cheapest option, they will let you expend if you need more.</p>
+<p>Also enable IPv6 for future.</p>
+<ol start="3">
+<li><strong>Connect your Domain and Server</strong></li>
+</ol>
+<p>Open your domain registrar and DNS records.</p>
+<p>Put your server&rsquo;s IPv4 address to A and IPv6 address to AAAA value.
+Save and after couple of minutes (sometimes and hour)
+test with terminal</p>
+<p>ping yourdomain.net
+if you see the same IP with your server, then everything is ok.</p>
+<ol start="4">
+<li><strong>Set up NginX webserver</strong></li>
+</ol>
+<p>Login to your server</p>
+<p><code>ssh root@yourdomain.net</code></p>
+<p>If you cannot, it means your DNS settings are not correct, or it is not updated yet, check step 3.</p>
+<p>First update packages, then install nginx.</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>apt update
+</span></span><span style="display:flex;"><span>apt upgrade
+</span></span><span style="display:flex;"><span>apt install nginx
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Create a file in <em>/etc/nginx/sites-available</em> by</p>
+<p><code>nano /etc/nginx/sites-available/mywebsite</code></p>
+<p>then add following content into it.</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-gdscript3" data-lang="gdscript3"><span style="display:flex;"><span>server {
+</span></span><span style="display:flex;"><span>        listen 80 ;
+</span></span><span style="display:flex;"><span>        listen [::]:80 ;
+</span></span><span style="display:flex;"><span>        server_name yourdomain.net ;
+</span></span><span style="display:flex;"><span>        root /<span style="color:#00f">var</span>/www/mysite ;
+</span></span><span style="display:flex;"><span>        index index.html index.htm index.nginx-debian.html ;
+</span></span><span style="display:flex;"><span>        location / {
+</span></span><span style="display:flex;"><span>                try_files $uri $uri/ =404 ;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Create the directory for your website:</p>
+<p><code>mkdir /var/www/mysite</code></p>
+<p><code>nano /var/www/mysite/index.html</code></p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>&lt;!DOCTYPE html&gt;
+</span></span><span style="display:flex;"><span>&lt;html&gt;
+</span></span><span style="display:flex;"><span>&lt;body&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;h1&gt;My ultimate website&lt;/h1&gt;
+</span></span><span style="display:flex;"><span>&lt;p&gt;is going lit!&lt;/p&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;/body&gt;
+</span></span><span style="display:flex;"><span>&lt;/html&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Enabling the website:</p>
+<p><code>ln -s /etc/nginx/sites-available/mywebsite /etc/nginx/sites-enabled</code></p>
+<p>and reload nginx service</p>
+<p><code>systemctl reload nginx</code></p>
+<p>The Firewall:</p>
+<p>Just to be on the safe side install firewall and allow website and mail ports as well as yourself.</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-gdscript3" data-lang="gdscript3"><span style="display:flex;"><span>apt install ufw
+</span></span><span style="display:flex;"><span>ufw default deny incoming
+</span></span><span style="display:flex;"><span>ufw allow <span style="color:#00f">in</span> ssh
+</span></span><span style="display:flex;"><span>ufw enable
+</span></span><span style="display:flex;"><span>ufw allow 80
+</span></span><span style="display:flex;"><span>ufw allow 443
+</span></span><span style="display:flex;"><span>ufw allow http
+</span></span><span style="display:flex;"><span>ufw allow https
+</span></span><span style="display:flex;"><span>ufw allow <span style="color:#00f">in</span> IMAPS
+</span></span><span style="display:flex;"><span>ufw allow <span style="color:#00f">in</span> POP3
+</span></span><span style="display:flex;"><span>ufw allow <span style="color:#00f">in</span> SMTP
+</span></span><span style="display:flex;"><span>ufw allow <span style="color:#00f">in</span> <span style="color:#a31515">&#39;Postfix SMTPS&#39;</span>
+</span></span><span style="display:flex;"><span>ufw allow <span style="color:#00f">in</span> <span style="color:#a31515">&#39;Mail Submission&#39;</span>
+</span></span><span style="display:flex;"><span>ufw reload
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="5">
+<li><strong>Certbot and HTTPS</strong></li>
+</ol>
+<p>To enable encrypted  connections over HTTPS/SSL we need to do these:</p>
+<p><code>apt install python3-certbot-nginx</code></p>
+<p><code>certbot --nginx</code></p>
+<p>Do not use or give your mail address, no need. It is all done, now lets create certificate renewal:</p>
+<p><code>crontab -e</code></p>
+<p>add <code>0 0 1 * * certbot --nginx renew</code> to end of the line and save this.</p>
+<p>VOILA!</p>
+<p>Now you have a server, and a basic intro webpage up and running.</p>
+<hr>
+<p>🌊⛰🔥</p>
+
+</content>
+<p>
+  
+  <a href="https://kezer.co/tags/web/">#Web</a>
+  
+  <a href="https://kezer.co/tags/technology/">#Technology</a>
+  
+</p>
+
+  </main>
+  <footer>mrkezer. © DYOR</footer>
+
+    
+</body>
+
+</html>

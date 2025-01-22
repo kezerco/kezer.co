@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Use SSH keys to login to your Server | &#43;</title>
+<meta name="title" content="Use SSH keys to login to your Server" />
+<meta name="description" content="Two advantages:
+
+Passwordless login: With SSH keys, your computer will have the key and you will never need to write root password.
+Hacking: Noone can guess or brute force your password into logging into your server, as we will not allow logging in without SSH.
+
+So in short, SSH key login is faster, safer, easier.
+Lets Generate a SSH key pair
+On your terminal run:
+ssh-keygen
+Do not give any password, and defaults are ok." />
+<meta name="keywords" content="web,technology," />
+
+
+<meta property="og:url" content="https://kezer.co/posts/use-ssh-keys-to-login-to-your-server/">
+  <meta property="og:site_name" content="&#43;">
+  <meta property="og:title" content="Use SSH keys to login to your Server">
+  <meta property="og:description" content="Two advantages:
+Passwordless login: With SSH keys, your computer will have the key and you will never need to write root password. Hacking: Noone can guess or brute force your password into logging into your server, as we will not allow logging in without SSH. So in short, SSH key login is faster, safer, easier.
+Lets Generate a SSH key pair
+On your terminal run:
+ssh-keygen
+Do not give any password, and defaults are ok.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-04-12T03:39:12+03:00">
+    <meta property="article:modified_time" content="2024-04-12T03:39:12+03:00">
+    <meta property="article:tag" content="Web">
+    <meta property="article:tag" content="Technology">
+
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Use SSH keys to login to your Server">
+  <meta name="twitter:description" content="Two advantages:
+Passwordless login: With SSH keys, your computer will have the key and you will never need to write root password. Hacking: Noone can guess or brute force your password into logging into your server, as we will not allow logging in without SSH. So in short, SSH key login is faster, safer, easier.
+Lets Generate a SSH key pair
+On your terminal run:
+ssh-keygen
+Do not give any password, and defaults are ok.">
+
+
+
+
+  <meta itemprop="name" content="Use SSH keys to login to your Server">
+  <meta itemprop="description" content="Two advantages:
+Passwordless login: With SSH keys, your computer will have the key and you will never need to write root password. Hacking: Noone can guess or brute force your password into logging into your server, as we will not allow logging in without SSH. So in short, SSH key login is faster, safer, easier.
+Lets Generate a SSH key pair
+On your terminal run:
+ssh-keygen
+Do not give any password, and defaults are ok.">
+  <meta itemprop="datePublished" content="2024-04-12T03:39:12+03:00">
+  <meta itemprop="dateModified" content="2024-04-12T03:39:12+03:00">
+  <meta itemprop="wordCount" content="287">
+  <meta itemprop="keywords" content="Web,Technology">
+<meta name="referrer" content="no-referrer-when-downgrade" />
+
+  <style>
+  :root {
+      --width: 800px;
+      --font-main: Verdana, sans-serif;
+      --font-secondary: Verdana, sans-serif;
+      --font-scale: 1em;
+      --background-color: #fff;
+      --heading-color: #222;
+      --text-color: #444;
+      --link-color: #3273dc;
+      --visited-color:  #8b6fcb;
+      --code-background-color: #f2f2f2;
+      --code-color: #222;
+      --blockquote-color: #222;
+  }
+
+  @media (prefers-color-scheme: dark) {
+      :root {
+          --background-color: #333;
+          --heading-color: #eee;
+          --text-color: #ddd;
+          --link-color: #8cc2dd;
+          --visited-color:  #8b6fcb;
+          --code-background-color: #777;
+          --code-color: #ddd;
+          --blockquote-color: #ccc;
+      }
+  }
+
+  body {
+      font-family: var(--font-secondary);
+      font-size: var(--font-scale);
+      margin: auto;
+      padding: 20px;
+      max-width: var(--width);
+      text-align: left;
+      background-color: var(--background-color);
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      line-height: 1.5;
+      color: var(--text-color);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+      font-family: var(--font-main);
+      color: var(--heading-color);
+  }
+
+  a {
+      color: var(--link-color);
+      cursor: pointer;
+      text-decoration: none;
+  }
+
+  a:hover {
+      text-decoration: underline; 
+  }
+
+  nav a {
+      margin-right: 8px;
+  }
+
+  strong, b {
+      color: var(--heading-color);
+  }
+
+  button {
+      margin: 0;
+      cursor: pointer;
+  }
+
+  main {
+      line-height: 1.6;
+  }
+
+  table {
+      width: 100%;
+  }
+
+  hr {
+      border: 0;
+      border-top: 1px dashed;
+  }
+
+  img {
+      max-width: 100%;
+  }
+
+  code {
+      font-family: monospace;
+      padding: 2px;
+      background-color: var(--code-background-color);
+      color: var(--code-color);
+      border-radius: 3px;
+  }
+
+  blockquote {
+      border-left: 1px solid #999;
+      color: var(--code-color);
+      padding-left: 20px;
+      font-style: italic;
+  }
+
+  footer {
+      padding: 25px 0;
+      text-align: center;
+  }
+
+  .title:hover {
+      text-decoration: none;
+  }
+
+  .title h1 {
+      font-size: 1.5em;
+  }
+
+  .inline {
+      width: auto !important;
+  }
+
+  .highlight, .code {
+      padding: 1px 15px;
+      background-color: var(--code-background-color);
+      color: var(--code-color);
+      border-radius: 3px;
+      margin-block-start: 1em;
+      margin-block-end: 1em;
+      overflow-x: auto;
+  }
+
+   
+  ul.blog-posts {
+      list-style-type: none;
+      padding: unset;
+  }
+
+  ul.blog-posts li {
+      display: flex;
+  }
+
+  ul.blog-posts li span {
+      flex: 0 0 130px;
+  }
+
+  ul.blog-posts li a:visited {
+      color: var(--visited-color);
+  }
+</style>
+
+</head>
+
+<body>
+  <header><a href="/" class="title">
+  <h2>&#43;</h2>
+</a>
+<nav><a href="/">home</a>
+
+<a href="/posts/">posts</a>
+
+<a href="/tags/">tags</a>
+
+
+</nav>
+</header>
+  <main>
+
+<content>
+  <p>Two advantages:</p>
+<ul>
+<li><strong>Passwordless login</strong>: With SSH keys, your computer will have the key and you will never need to write root password.</li>
+<li><strong>Hacking</strong>: Noone can guess or brute force your password into logging into your server, as we will not allow logging in without SSH.</li>
+</ul>
+<p>So in short, <strong>SSH key</strong> login is <em>faster, safer, easier</em>.</p>
+<p>Lets <strong>Generate a SSH key pair</strong></p>
+<p>On your terminal run:</p>
+<p><code>ssh-keygen</code></p>
+<p>Do not give any password, and defaults are ok.</p>
+<p>This key, is the key to your server, so do not loose it, back it up to a safe usb drive, and keep it safe. You will always need this to enter your server. At the end of the post, ill tell you what to do in case of loosing ssh key, but its always better not to loose it.</p>
+<p>Lets <strong>Make your server trust your key</strong>.</p>
+<p><code>ssh-copy-id root@yourdomain.com</code></p>
+<p>It will ask for your password, then it will put your key to your server, so that server will know what to trust.</p>
+<p>to test:</p>
+<p><code>ssh root@yourdomain.com</code></p>
+<p>if you logged in without any password, you are almost done.</p>
+<p>Now, lets disable <strong>Password Login</strong></p>
+<p>Log in your server and edit <em>/etc/ssh/sshd_config</em> file</p>
+<p>uncomment/create these lines</p>
+<p><code>PasswordAuthentication no</code></p>
+<p><code>ChallengeResponseAuthentication no</code></p>
+<p><code>UsePAM no</code></p>
+<p>then reload ssh daemon:</p>
+<p><code>systemctl reload sshd</code></p>
+<p>Voila! Done. Lets go.</p>
+<p>What if  you <strong>loose your ssh key?</strong></p>
+<p>First of all, do not loose your key, but in case you did:</p>
+<p>Most probably when you login to your provider, there will be remote access page, get in there. It will be local connection so it will not require any ssh key, so that you can login and revert the changes we made to sshd_config file, then start all over again.</p>
+<p>Bon appetit.</p>
+<hr>
+<p>🌊⛰🔥</p>
+
+</content>
+<p>
+  
+  <a href="https://kezer.co/tags/web/">#Web</a>
+  
+  <a href="https://kezer.co/tags/technology/">#Technology</a>
+  
+</p>
+
+  </main>
+  <footer>mrkezer. © DYOR</footer>
+
+    
+</body>
+
+</html>
